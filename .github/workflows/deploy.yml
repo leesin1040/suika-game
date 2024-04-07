@@ -30,3 +30,4 @@ jobs:
           branch: gh-pages # 배포될 브랜치
           folder: dist # Vite 빌드 폴더
           token: ${{ secrets.GITHUB_TOKEN }} # 권한 토큰
+          force: true
