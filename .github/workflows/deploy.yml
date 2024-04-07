@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16' # 또는 프로젝트에 맞는 다른 버전
+          node-version: '18' # LTS 버전 사용
 
       - name: Install Dependencies
         run: npm install
@@ -28,6 +27,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # GitHub Pages를 위한 브랜치
-          folder: dist # Vite 빌드 결과물이 위치한 폴더
-          token: ${{ secrets.GITHUB_TOKEN }} # GitHub 토큰
+          branch: gh-pages # 배포될 브랜치
+          folder: dist # Vite 빌드 폴더
+          token: ${{ secrets.GITHUB_TOKEN }} # 권한 토큰
