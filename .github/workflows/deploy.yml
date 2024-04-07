@@ -15,7 +15,7 @@ jobs:
           npm install
           npm run build
       - name: Deploy
-        uses: leesin1040/suika-game-deploy-action@4.1.0
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          branch: gh-pages
-          folder: dist
+          branch: gh-pages # 배포할 브랜치
+          folder: dist # 빌드 결과물이 위치한 디렉토리
