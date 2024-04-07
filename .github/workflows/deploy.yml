@@ -9,14 +9,18 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 # Node.js 20을 지원하는 최신 버전으로 업데이트
+      - uses: actions/checkout@v3
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Install and Build
         run: |
           npm install
           npm run build
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.5 # 예시로 제시된 버전이지만, 사용 전 최신 버전을 확인하세요.
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          branch: gh-pages # 배포할 브랜치
-          folder: dist # 빌드 결과물이 위치한 디렉토리
-          token: ${{ secrets.GITHUB_TOKEN }} # GitHub Actions가 제공하는 기본 토큰 사용
+          branch: gh-pages
+          folder: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
